@@ -1,4 +1,4 @@
-# CarND-Behavioral-Cloning-Project-
+# CarND-Behavioral-Cloning-Project
 This repository contains files for the Behavioral Cloning Project.
 
 ![CarNd]( /2017_07_26_11_18_46_self_driving_car_nanodegree_program.png "")

@@ -22,7 +22,7 @@ When the training is done, the model is saved as model.h5.
 
 # Training #
 Below is the summary of the model I implemented to train the data.
-
+```
 ____________________________________________________________________________________________________
 Layer (type)                     Output Shape          Param #     Connected to                     
 ====================================================================================================
@@ -53,3 +53,4 @@ dense_4 (Dense)                  (None, 1)             11          dense_3[0][0]
 Total params: 2,882,619
 Trainable params: 2,882,619
 Non-trainable params: 0
+```

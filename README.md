@@ -20,6 +20,9 @@ First, it imports the pickle file from the local drive and train the data using 
 The detail of the model can be found in the script.
 When the training is done, the model is saved as model.h5.
 
+# Image processing #
+
+
 # Training #
 Below is the summary of the model I implemented to train the data.
 ```

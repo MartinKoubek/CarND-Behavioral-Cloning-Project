@@ -3,6 +3,10 @@ This repository contains files for the Behavioral Cloning Project.
 
 ![CarNd]( /images/2017_07_26_11_18_46_self_driving_car_nanodegree_program.png "")
 
+
+Youtube link:
+https://youtu.be/JKlJVY10dyw
+
 My solution to the Udacity Self-Driving Car Engineer Nanodegree Behavioral Cloning project.
 
 There is python scripts: model.py that:

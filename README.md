@@ -1,7 +1,7 @@
 # CarND-Behavioral-Cloning-Project
 This repository contains files for the Behavioral Cloning Project.
 
-![CarNd]( /2017_07_26_11_18_46_self_driving_car_nanodegree_program.png "")
+![CarNd]( /images/2017_07_26_11_18_46_self_driving_car_nanodegree_program.png "")
 
 My solution to the Udacity Self-Driving Car Engineer Nanodegree Behavioral Cloning project.
 
@@ -22,6 +22,13 @@ When the training is done, the model is saved as model.h5.
 
 # Image processing #
 
+Origin capture image
+
+![CarNd]( /images/image_screenshot_31.07.2017.png "")
+
+Processed image - cropped, resized and blured
+
+![CarNd]( /images/image2_screenshot_31.07.2017.png "")
 
 # Training #
 Below is the summary of the model I implemented to train the data.

@@ -23,9 +23,11 @@ When the training is done, the model is saved as model.h5.
 # Image processing #
 
 Origin capture image
+
 ![CarNd]( /images/image_screenshot_31.07.2017.png "")
 
 Processed image - cropped, resized and blured
+
 ![CarNd]( /images/image2_screenshot_31.07.2017.png "")
 
 # Training #

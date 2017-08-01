@@ -1,11 +1,24 @@
 # CarND-Behavioral-Cloning-Project
-This repository contains files for the Behavioral Cloning Project.
+This repository contains files for the Behavioral Cloning Project from Udacity.
+
+In this project, it was learned about deep neural networks and convolutional neural networks to clone driving behavior. It trains, validate and test a model using Keras. The model outputs a steering angle to an autonomous vehicle.
+
+It was provided a simulator where a car can be steer around a track for data collection. It was use image data and steering angles to train a neural network and then use this model to drive the car autonomously around the track.
+
+To meet specifications, the project requires submitting five files:
+
+* model.py (script used to create and train the model)
+* drive.py (script to drive the car - feel free to modify this file)
+* model.h5 (a trained Keras model)
+* a report writeup file (either markdown or pdf)
+* video.mp4 (a video recording of your vehicle driving autonomously around the track for at least one full lap)
+
 
 ![CarNd]( /images/2017_07_26_11_18_46_self_driving_car_nanodegree_program.png "")
 
 
 Youtube link:
-https://youtu.be/JKlJVY10dyw
+https://youtu.be/RyA0zojd2bY
 
 My solution to the Udacity Self-Driving Car Engineer Nanodegree Behavioral Cloning project.
 
@@ -13,6 +26,20 @@ There is python scripts: model.py that:
 * load images
 * flip some of images in order to get more input data
 * calculate neural network
+
+# The Project #
+
+The goals / steps of this project are the following:
+
+* Use the simulator to collect data of good driving behavior
+* Design, train and validate a model that predicts a steering angle from image data
+* Use the model to drive the vehicle autonomously around the first track in the simulator. The vehicle should remain on the road for an entire loop around the track.
+* Summarize the results with a written report
+
+## Dependencies ##
+
+This lab requires resources described here:
+https://github.com/udacity/CarND-Behavioral-Cloning-P3
 
 
 # Project Specification #
@@ -36,34 +63,10 @@ Processed image - cropped, resized and blured
 
 # Training #
 Below is the summary of the model I implemented to train the data.
+
+![CarNd]( /images/model.png "")
+
 ```
-____________________________________________________________________________________________________
-Layer (type)                     Output Shape          Param #     Connected to                     
-====================================================================================================
-lambda_1 (Lambda)                (None, 160, 320, 3)   0           lambda_input_1[0][0]             
-____________________________________________________________________________________________________
-convolution2d_1 (Convolution2D)  (None, 78, 158, 24)   1824        lambda_1[0][0]                   
-____________________________________________________________________________________________________
-convolution2d_2 (Convolution2D)  (None, 37, 77, 36)    21636       convolution2d_1[0][0]            
-____________________________________________________________________________________________________
-convolution2d_3 (Convolution2D)  (None, 17, 37, 48)    43248       convolution2d_2[0][0]            
-____________________________________________________________________________________________________
-convolution2d_4 (Convolution2D)  (None, 15, 35, 64)    27712       convolution2d_3[0][0]            
-____________________________________________________________________________________________________
-convolution2d_5 (Convolution2D)  (None, 13, 33, 64)    36928       convolution2d_4[0][0]            
-____________________________________________________________________________________________________
-dropout_1 (Dropout)              (None, 13, 33, 64)    0           convolution2d_5[0][0]            
-____________________________________________________________________________________________________
-flatten_1 (Flatten)              (None, 27456)         0           dropout_1[0][0]                  
-____________________________________________________________________________________________________
-dense_1 (Dense)                  (None, 100)           2745700     flatten_1[0][0]                  
-____________________________________________________________________________________________________
-dense_2 (Dense)                  (None, 50)            5050        dense_1[0][0]                    
-____________________________________________________________________________________________________
-dense_3 (Dense)                  (None, 10)            510         dense_2[0][0]                    
-____________________________________________________________________________________________________
-dense_4 (Dense)                  (None, 1)             11          dense_3[0][0]                    
-====================================================================================================
 Total params: 2,882,619
 Trainable params: 2,882,619
 Non-trainable params: 0

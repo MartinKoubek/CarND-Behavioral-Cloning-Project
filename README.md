@@ -53,7 +53,13 @@ When the training is done, the model is saved as model.h5.
 
 # Image processing #
 
-Origin capture image
+The images are cropped so that the model won’t be trained with the sky and the car front parts
+The images are resized to 66x200 (3 YUV channels) as per NVIDIA model
+The images are normalized (image data divided by 127.5 and subtracted 1.0). 
+
+As stated in the Model Architecture section, this is to avoid saturation and make gradients work better)
+
+Original image
 
 ![CarNd]( /images/image_screenshot_31.07.2017.png "")
 
@@ -62,7 +68,17 @@ Processed image - cropped, resized and blured
 ![CarNd]( /images/image2_screenshot_31.07.2017.png "")
 
 # Training #
-Below is the summary of the model I implemented to train the data.
+The design of the network is based on the NVIDIA model, which has been used by NVIDIA for the end-to-end self driving test. As such, it is well suited for the project.
+
+It is a deep convolution network which works well with supervised image classification / regression problems. As the NVIDIA model is well documented, I was able to focus how to adjust the training images to produce the best result with some adjustments to the model to avoid overfitting and adding non-linearity to improve the prediction.
+
+I've added the following adjustments to the model.
+
+* I used Lambda layer to normalized input images to avoid saturation and make gradients work better.
+* I've added an additional dropout layer to avoid overfitting after the convolution layers.
+* I've also included RELU for activation function for every layer except for the output layer to introduce non-linearity.
+
+In the end, the model looks like as follows:
 
 ![CarNd]( /images/model.png "")
 

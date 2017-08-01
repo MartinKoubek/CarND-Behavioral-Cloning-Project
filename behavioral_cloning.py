@@ -14,7 +14,11 @@ from keras.optimizers import Adam
 from keras.layers import Flatten, Dense, Lambda, Cropping2D, Activation, Dropout
 from keras.layers.convolutional import Convolution2D
 from keras.callbacks import ModelCheckpoint
+from keras.utils.visualize_util import plot
 
+'''
+Parameters to tune model
+'''
 
 UDACITY = False
 LEARNING_RATE=1.0e-4
@@ -27,13 +31,22 @@ TEST_SIZE = 0.2
 
 
 class BehavioralCloning(object):
+    '''
+    The class calculates model from images
+    '''
 
 
     def __init__(self):
+        """
+        Init the model
+        """
         self.prepare()
         self.neural_network()
         
     def prepare(self):
+        """
+        Put images paths and angles to variables lists
+        """
         samples = []
         image_paths = []
         angles = []
@@ -87,6 +100,9 @@ class BehavioralCloning(object):
                               test_size=TEST_SIZE)
 
     def neural_network(self):
+        """
+        Set the neural network
+        """
         model = Sequential()
         
         train_generator = self.generator(self.image_paths_train, self.angles_train, validation_flag=False, batch_size=BATCH_SIZE)
@@ -113,8 +129,10 @@ class BehavioralCloning(object):
         
         
         model.compile(loss = 'mse', optimizer=Adam(lr=LEARNING_RATE))
+        plot(model, to_file='model.png', show_shapes=True, \
+                   show_layer_names=True)
         
-        checkpoint = ModelCheckpoint('model2{epoch:02d}.h5', \
+        checkpoint = ModelCheckpoint('model{epoch:02d}.h5', \
                                  monitor='val_loss', \
                                  verbose=0, \
                                  save_best_only=True, \
@@ -130,11 +148,14 @@ class BehavioralCloning(object):
             
             
        
-        model.save('model2.h5')
+        model.save('model.h5')
         print ("Model saved")
         
      
     def generator(self, image_paths, angles, batch_size=64, validation_flag=False):
+        """
+        This is generator in order to NOT store all data in memory 
+        """
         image_paths, angles = sklearn.utils.shuffle(image_paths, angles)
         self.X,self.y = ([],[])
         
